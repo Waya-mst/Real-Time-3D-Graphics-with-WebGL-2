@@ -121,11 +121,13 @@
         -0.5, 0.5, 0,
         -0.5, -0.5, 0,
         0.5, -0.5, 0,
+        -0.5, 0.5, 0,
+        0.5, -0.5, 0,
         0.5, 0.5, 0
       ];
 
       // Indices defined in counter-clockwise order
-      indices = [0, 1, 2, 0, 2, 3];
+      //indices = [0, 1, 2, 0, 2, 3];
 
       // Setting up the VBO
       squareVertexBuffer = gl.createBuffer();
@@ -133,13 +135,13 @@
       gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
 
       // Setting up the IBO
-      squareIndexBuffer = gl.createBuffer();
-      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, squareIndexBuffer);
-      gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
+        //   squareIndexBuffer = gl.createBuffer();
+        //   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, squareIndexBuffer);
+        //   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
 
       // Clean
       gl.bindBuffer(gl.ARRAY_BUFFER, null);
-      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
+      //gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
     }
 
     // We call draw to render to our canvas
@@ -156,16 +158,16 @@
       gl.enableVertexAttribArray(program.aVertexPosition);
 
       // Bind IBO
-      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, squareIndexBuffer);
+      //gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, squareIndexBuffer);
       //
       //gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
 
       // Draw to the scene using triangle primitives
-      gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0);
+      gl.drawArrays(gl.TRIANGLES, 0, 6);
 
       // Clean
       gl.bindBuffer(gl.ARRAY_BUFFER, null);
-      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
+      //gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
     }
 
     // Entry point to our application
