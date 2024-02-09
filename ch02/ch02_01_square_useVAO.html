@@ -142,6 +142,7 @@
         // draw()内で後でデータを使うためにVAOの命令を実行
         gl.enableVertexAttribArray(program.aVertexPosition);
         gl.vertexAttribPointer(program.aVertexPosition, 3, gl.FLOAT, false, 0, 0);
+        gl.bindBuffer(gl.ARRAY_BUFFER, null);
 
         // Setting up the IBO
         squareIndexBuffer = gl.createBuffer();
@@ -171,7 +172,7 @@
       //gl.enableVertexAttribArray(program.aVertexPosition);
 
       // Bind IBO
-      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, squareIndexBuffer);
+      //gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, squareIndexBuffer);
       //
       //gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
 
@@ -180,8 +181,8 @@
 
       // Clean
       gl.bindVertexArray(null);
-      gl.bindBuffer(gl.ARRAY_BUFFER, null);
-      gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
+      //gl.bindBuffer(gl.ARRAY_BUFFER, null);
+      //gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null);
     }
 
     // Entry point to our application
